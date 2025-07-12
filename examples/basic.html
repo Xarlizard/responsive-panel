@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Panel Example</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: white;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        margin: 0 0 20px 0;
+        background: linear-gradient(45deg, #fff, #f0f0f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin: 0;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card h2 {
+        font-size: 1.5rem;
+        margin: 0 0 15px 0;
+        color: #fff;
+      }
+
+      .card p {
+        opacity: 0.8;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .controls {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0 10px;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .form-section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 40px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          display: block;
+          margin: 10px 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 20px 10px;
+        }
+
+        .header h1 {
+          font-size: 1.5rem;
+        }
+
+        .card {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Responsive Panel Demo</h1>
+        <p>
+          Look for the floating button in the bottom-right corner to open the
+          responsive panel!
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="card">
+          <h2>🎨 Beautiful Design</h2>
+          <p>
+            This demo page showcases how your responsive design looks across
+            different breakpoints. The gradient background and glass-morphism
+            effects will help you see how visual elements scale.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>📱 Mobile First</h2>
+          <p>
+            Test how your layout adapts from mobile portrait (320px) to large
+            desktop screens (1280px+). Notice how the grid columns adjust
+            automatically.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>🔧 Interactive Elements</h2>
+          <p>
+            Forms, buttons, and other interactive elements are included to test
+            how they behave across different viewport sizes.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>📊 Real-time Preview</h2>
+          <p>
+            The responsive panel shows live previews of your page at different
+            breakpoints, updating in real-time as you interact with the page.
+          </p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="changeTheme()">Toggle Theme</button>
+        <button class="btn" onclick="addContent()">Add Content</button>
+        <button class="btn" onclick="scrollToTop()">Scroll to Top</button>
+      </div>
+
+      <div class="form-section">
+        <h2>📝 Test Form</h2>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            rows="4"
+            placeholder="Enter your message"
+          ></textarea>
+        </div>
+
+        <button class="btn">Submit Form</button>
+      </div>
+    </div>
+
+    <script>
+      function changeTheme() {
+        document.body.style.background =
+          document.body.style.background.includes("667eea")
+            ? "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+            : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+      }
+
+      function addContent() {
+        const container = document.querySelector(".content");
+        const newCard = document.createElement("div");
+        newCard.className = "card";
+        newCard.innerHTML = `
+                <h2>✨ New Card</h2>
+                <p>This card was added dynamically to test how the responsive panel handles content changes.</p>
+            `;
+        container.appendChild(newCard);
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
